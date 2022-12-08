@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Created By: Peter Sobowale
-# Date: October 24, 2022
+# Date: December 8, 2022
 # This program is a linear calculator, it solves linear equations
 import os
 import time
