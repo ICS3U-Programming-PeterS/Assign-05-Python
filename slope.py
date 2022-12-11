@@ -97,9 +97,9 @@ def main():
             print("Choose from one of the following options:")
             print(
                 "\t [1] Solve for y -- y=mx+b \n \t"
-                + "[2] Solve for x -- x=(y-b)/m \n \t"
+                + " [2] Solve for x -- x=(y-b)/m \n \t"
                 + " [3] Solve for m -- m=(y-b)/x \n \t "
-                + "[4] Solve for b -- b=y-mx \n \t"
+                + "[4] Solve for b -- b=y-mx \n \t "
                 + "[5] Solve for m -- m=(y2-y1)/(x2-x1)"
             )
 
@@ -354,105 +354,102 @@ def main():
             print("To solve for m, you need x1, x2, y1 and y2.")
             x1_string = input("Enter a value for x1: ")
             try:
-                x1_float = float(x1_string)
+                x1_int = int(x1_string)
                 x2_string = input("Enter a value for x2: ")
                 try:
-                    x2_float = float(x2_string)
-                    y1_string = "Enter a value for y1: "
+                    x2_int = int(x2_string)
+                    y1_string = input("Enter a value for y1: ")
                     try:
-                        y1_float = float(y1_string)
+                        y1_int = int(y1_string)
                         y2_string = input("Enter a value for y2: ")
                         try:
-                            y2_float = float(y2_string)
-                            if -1 >= y1_float:
-                                m = solve_m2(x1_float, x2_float, y1_float, y2_float)
-                                b = solve_y_int(
-                                    x1_float, x2_float, y1_float, y2_float, m
-                                )
-                                if b >= 0:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x + "
-                                        + str(b)
-                                        + "\n" * 2
-                                    )
-                                else:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x - "
-                                        + str(abs(b))
-                                        + "\n" * 2
-                                    )
+                            y2_int = int(y2_string)
+                            if x2_int == x1_int:
+                                print("x1 and x2 cannot be equal.")
+                            else:
+                                if -1 >= y1_int:
+                                    m = solve_m2(x1_int, x2_int, y1_int, y2_int)
+                                    b = solve_y_int(x1_int, x2_int, y1_int, y2_int, m)
+                                    if b >= 0:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x + "
+                                            + str(b)
+                                            + "\n" * 2
+                                        )
+                                    else:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x - "
+                                            + str(abs(b))
+                                            + "\n" * 2
+                                        )
 
-                            if -1 >= x1_float:
-                                m = solve_m3(x1_float, x2_float, y1_float, y2_float)
-                                b = solve_y_int(
-                                    x1_float, x2_float, y1_float, y2_float, m
-                                )
-                                if b >= 0:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x + "
-                                        + str(b)
-                                        + "\n" * 2
-                                    )
-                                else:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x - "
-                                        + str(abs(b))
-                                        + "\n" * 2
-                                    )
+                                if -1 >= x1_int:
+                                    m = solve_m3(x1_int, x2_int, y1_int, y2_int)
+                                    b = solve_y_int(x1_int, x2_int, y1_int, y2_int, m)
+                                    if b >= 0:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x + "
+                                            + str(b)
+                                            + "\n" * 2
+                                        )
+                                    else:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x - "
+                                            + str(abs(b))
+                                            + "\n" * 2
+                                        )
 
-                            if -1 <= x1_float:
-                                m = solve_m1(x1_float, x2_float, y1_float, y2_float)
-                                b = solve_y_int(
-                                    x1_float, x2_float, y1_float, y2_float, m
-                                )
-                                if b >= 0:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x + "
-                                        + str(b)
-                                        + "\n" * 2
-                                    )
-                                else:
-                                    print(
-                                        "The value of b is "
-                                        + str(b)
-                                        + "."
-                                        + "\n"
-                                        + "The equation is y = "
-                                        + str(m)
-                                        + "x - "
-                                        + str(abs(b))
-                                        + "\n" * 2
-                                    )
+                                if -1 <= x1_int:
+                                    m = solve_m1(x1_int, x2_int, y1_int, y2_int)
+                                    b = solve_y_int(x1_int, x2_int, y1_int, y2_int, m)
+                                    if b >= 0:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x + "
+                                            + str(b)
+                                            + "\n" * 2
+                                        )
+                                    else:
+                                        print(
+                                            "The value of b is "
+                                            + str(b)
+                                            + "."
+                                            + "\n"
+                                            + "The equation is y = "
+                                            + str(m)
+                                            + "x - "
+                                            + str(abs(b))
+                                            + "\n" * 2
+                                        )
 
                         except ValueError:
                             print("\nEnter a valid y2 value.")
